@@ -11,5 +11,6 @@
 
 #include "structs.h"
 #include "triangles.h"
+#include "meshes.h"
 
 #endif
