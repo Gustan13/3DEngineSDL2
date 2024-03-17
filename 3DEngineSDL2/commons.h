@@ -14,5 +14,6 @@
 #include "meshes.h"
 #include "matrix.h"
 #include "init.h"
+#include "draw.h"
 
 #endif

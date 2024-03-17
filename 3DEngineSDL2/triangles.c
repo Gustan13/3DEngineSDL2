@@ -1,6 +1,8 @@
 #include <SDL.h>
+#include <stdio.h>
 #include "structs.h"
 #include "triangles.h"
+#include "matrix.h"
 
 struct triangle* createTriangle(struct vertex v1, struct vertex v2, struct vertex v3) {
 	struct triangle* t = NULL;
@@ -50,4 +52,37 @@ void drawTriangle(
 	SDL_RenderDrawLineF(renderer, x1, y1, x2, y2);
 	SDL_RenderDrawLineF(renderer, x2, y2, x3, y3);
 	SDL_RenderDrawLineF(renderer, x3, y3, x1, y1);
+}
+
+struct triangle* rotateTriangle(struct triangle* t, int axis, float angle) {
+	struct mat4x4* matRot = NULL;
+	struct triangle* triRotated = malloc(sizeof(struct triangle));
+	if (triRotated == NULL)
+		return NULL;
+
+	if (t == NULL)
+		return NULL;
+
+	switch (axis)
+	{
+	case X:
+		matRot = createXRotationMatrix(angle);
+		break;
+	case Y:
+		matRot = createYRotationMatrix(angle);
+		break;
+	case Z:
+		matRot = createZRotationMatrix(angle);
+		break;
+	default:
+		break;
+	}
+
+	MultiplyMatrixVector(&t->vertices[0], &triRotated->vertices[0], matRot);
+	MultiplyMatrixVector(&t->vertices[1], &triRotated->vertices[1], matRot);
+	MultiplyMatrixVector(&t->vertices[2], &triRotated->vertices[2], matRot);
+
+	free(matRot);
+
+	return triRotated;
 }

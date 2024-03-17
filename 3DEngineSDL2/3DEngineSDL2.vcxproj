@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="draw.c" />
     <ClCompile Include="init.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="matrix.c" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commons.h" />
+    <ClInclude Include="draw.h" />
     <ClInclude Include="init.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="meshes.h" />

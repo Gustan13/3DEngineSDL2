@@ -55,6 +55,24 @@ struct mat4x4* createXRotationMatrix(float fTheta) {
 	return mat;
 }
 
+struct mat4x4* createYRotationMatrix(float fTheta) {
+	struct mat4x4* mat = NULL;
+	mat = malloc(sizeof(struct mat4x4));
+	if (mat == NULL)
+		return mat;
+
+	SDL_memset(mat->m, 0, sizeof(float) * 16);
+
+	mat->m[0][0] = cosf(fTheta * 0.5f);
+	mat->m[1][1] = 1;
+	mat->m[0][2] = sinf(fTheta * 0.5f);
+	mat->m[2][0] = -sinf(fTheta * 0.5f);
+	mat->m[2][2] = cosf(fTheta * 0.5f);
+	mat->m[3][3] = 1;
+
+	return mat;
+}
+
 struct mat4x4* createProjectionMatrix() {
 	float fNear = 0.1f;
 	float fFar = 1000.0f;

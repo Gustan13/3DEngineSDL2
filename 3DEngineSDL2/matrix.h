@@ -10,8 +10,8 @@ void MultiplyMatrixVector(
 );
 
 struct mat4x4* createZRotationMatrix(float fTheta);
-
 struct mat4x4* createXRotationMatrix(float fTheta);
+struct mat4x4* createYRotationMatrix(float fTheta);
 
 struct mat4x4* createProjectionMatrix();
 
