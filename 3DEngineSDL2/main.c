@@ -1,19 +1,5 @@
 #include "commons.h"
 
-struct vertex* createVertex(float x, float y, float z) {
-	struct vertex* v = NULL;
-	v = malloc(sizeof(struct triangle));
-	
-	if (v == NULL)
-		return v;
-
-	v->x = x;
-	v->y = y;
-	v->z = z;
-
-	return v;
-}
-
 int main(int argc, const char* argv[]) {
 	SDL_Window* window = NULL;
 	SDL_Surface* screen = NULL;
@@ -33,25 +19,11 @@ int main(int argc, const char* argv[]) {
 
 	bool running = true;
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		printf("Could not initialize SDL2: %s\n", SDL_GetError());
+	if (init(&window, &renderer, &screen) < 0)
 		return -1;
-	}
-
-	SDL_CreateWindowAndRenderer(640, 480, 0, &window, &renderer);
-	if (window == NULL || renderer == NULL) {
-		printf("Could not create WINDOW or RENDERER: %s\n", SDL_GetError());
-		return -1;
-	}
-
-	screen = SDL_GetWindowSurface(window);
-	if (screen == NULL) {
-		printf("Could not create surface from window: %s\n", SDL_GetError());
-		return -1;
-	}
 
 	while (running) {
-		struct mat4x4* matRotZ = NULL, * matRotX = NULL;
+		struct mat4x4* matRotZ = NULL, *matRotX = NULL;
 		matRotZ = createZRotationMatrix(fTheta);
 		matRotX = createXRotationMatrix(fTheta);
 

@@ -13,5 +13,6 @@
 #include "triangles.h"
 #include "meshes.h"
 #include "matrix.h"
+#include "init.h"
 
 #endif
