@@ -133,9 +133,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="triangles.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="commons.h" />
     <ClInclude Include="structs.h" />
+    <ClInclude Include="triangles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
