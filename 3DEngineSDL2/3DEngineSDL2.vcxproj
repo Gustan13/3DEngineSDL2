@@ -133,11 +133,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="matrix.c" />
     <ClCompile Include="meshes.c" />
     <ClCompile Include="triangles.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commons.h" />
+    <ClInclude Include="matrix.h" />
     <ClInclude Include="meshes.h" />
     <ClInclude Include="structs.h" />
     <ClInclude Include="triangles.h" />
